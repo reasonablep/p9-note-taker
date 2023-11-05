@@ -1,3 +1,6 @@
+const db = require('../../../db/db.json');
+const fs = require('fs');
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
