@@ -1,12 +1,12 @@
 const express = require ('express');
 
-const notesRouter = require ('../public/notes.html');
+const notesRouter = require ('./notes');
 
-const indexRouter = require ('../public/index.html');
+// const homeRouter = require ('./home');
 
 const app = express();
 
-app.use('../public/notes.html', notesRouter);
-app.use('../public/index.html', indexRouter);
+app.use('/notes', notesRouter);
+// app.use('/index', homeRouter);
 
 module.exports = app;

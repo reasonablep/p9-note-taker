@@ -1,16 +1,19 @@
-const notesRoute = require ('express').Router;
-const {readFromFile, readAndAppend} = require ('fsUtils');
-const {v4: uuidv4} = require('uuid');
+const notesRoute = require ('express').Router();
+const {readFromFile, readAndAppend} = require ('../helpers/fsutils');
+const {v4: uuidv4} = require('../helpers/uuid');
 
 notesRoute.get('/', (req,res) => {
     console.log(`${req.method} request received!`);
-    readFromFile('./db/db.json').then
+    readFromFile('../db/db.json').then((data) => res.json(JSON.parse(data))
+    );
 
 
 }); 
 
 notesRoute.post('/', (req,res) => {
 console.log(`${req.method} request received!`);
+
+const {title, note, id} = req.body;
 
 if (req.body) {
     const newNote = {
@@ -19,7 +22,7 @@ if (req.body) {
         id: uuidv4(),
     };
 
-    readAndAppend(newNote, './db/db.json');
+    readAndAppend(newNote, '../db/db.json');
     res.json(`Note added successfully`);
 
 } else {
@@ -28,4 +31,4 @@ if (req.body) {
 
 })
 
-module.export = notesRoute;
+module.exports = notesRoute;

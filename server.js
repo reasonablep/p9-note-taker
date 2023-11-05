@@ -1,7 +1,7 @@
 const express = require ('express');
 const path = require ('path');
 
-const api = require ('./routes/index');
+const api = require ('./routes/index.js');
 
 const PORT = 3001;
 
@@ -15,16 +15,17 @@ app.use(express.static('public'));
 app.use('/api', api);
 
 app.get('/', (req, res) => {
-res.sendFile(path.join(_dirname, 'notes.html'));
+    res.sendFile(path.join(_dirname, '/public/notes.html'));
+
 
 });
 
 // is it normal that req is unreachable in these blocks? does not matter? (could we only specify "res" as a parameter below?)
 
-app.get('/', (req,res) => {
-res.sendFile(path.join(_dirname, 'index.html'))
+// app.get('/', (req,res) => {
+// res.sendFile(path.join(_dirname, 'index.html'))
 
-});
+// });
 
 app.listen(PORT, () => {
 console.log(`App listening at http://localhost:${PORT}`)
