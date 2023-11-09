@@ -1,5 +1,4 @@
 const express = require('express');
-const { readFromFile } = require('../helpers/fsutils');
 const homeRoute = express.Router();
 
 homeRoute.get('/', (req,res) => 

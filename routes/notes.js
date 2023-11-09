@@ -1,6 +1,10 @@
 const notesRoute = require('express').Router();
 const {readFromFile, readAndAppend} = require ('../helpers/fsutils');
-const {v4: uuidv4} = require('../helpers/uuid');
+const {v4: uuidv4} = require('uuid');
+const express = require('express');
+
+notesRoute.use(express.json());
+notesRoute.use(express.urlencoded({extended: true}));
 
 notesRoute.get('/', (req,res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data))
@@ -11,18 +15,20 @@ notesRoute.get('/', (req,res) => {
 
 notesRoute.post('/', (req,res) => {
 
-const {title, note, id} = req.body;
+const {title,text} = req.body;
 
-if (req.body) {
+if (title && text) {
     const newNote = {
         title,
-        note,
-        id,
+        text,
         noteId: uuidv4(),
     };
 
+    console.log(newNote);
+
     readAndAppend(newNote, './db/db.json');
     res.json(`Note added successfully.`);
+
 
 } else {
     res.status(400).send('Error adding note')
