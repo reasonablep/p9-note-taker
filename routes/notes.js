@@ -1,12 +1,12 @@
 const notesRoute = require('express').Router();
 const {readFromFile, readAndAppend} = require ('../helpers/fsutils');
 const {v4: uuidv4} = require('uuid');
-const express = require('express');
+// const express = require('express');
 
 // Body parser provides req.body
 
-notesRoute.use(express.json());
-notesRoute.use(express.urlencoded({extended: true}));
+// notesRoute.use(express.json());
+// notesRoute.use(express.urlencoded({extended: true}));
 
 // Get notes from db.json when the root directory is requested
 
@@ -26,7 +26,7 @@ if (title && text) {
     const newNote = {
         title,
         text,
-        noteId: uuidv4(),
+        id: uuidv4(),
     };
 
     readAndAppend(newNote, './db/db.json');
@@ -35,17 +35,22 @@ if (title && text) {
 } else {
     res.status(400).send('Error adding note')
 }
+}
+)
 
 // Delete note when ID matches the ID clicked in the event handler in /public/assets/js/index.js
 
-notesRoute.delete(`/api/notes/${id}`, (req, res) => {
+//splice or filter for delete route w/ for loop
 
+notesRoute.delete(`/:id`, (req, res) => {
+console.log('hello')
+console.log(req.params.id)
 if (req.method === 'delete') {
     res.json(`Note deleted`)
 }
 
 })
 
-});
+
 
 module.exports = notesRoute;

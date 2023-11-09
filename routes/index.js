@@ -1,17 +1,14 @@
-const express = require ('express');
-
-// Define express routers for each page
-
-const notesRouter = require ('./notes.js');
-const homeRouter = require ('./home.js');
+// Require express, define router
+// const express = require('express');
+const router = require('express').Router();
+const notesRouter = require('./notes.js');
 
 // Define app for export
+// const app = express();
 
-const app = express();
+// Apply router path
+// app.use('/notes', notesRouter);
+router.use('/notes', notesRouter);
 
-// Apply router paths
-
-app.use('/notes', notesRouter);
-app.use('/home', homeRouter);
-
-module.exports = app;
+// Export app
+module.exports = router;
