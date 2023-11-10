@@ -1,41 +1,7 @@
 [
-    {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
-        "title": "DAW",
-        "text": "DAW",
-        "noteId": "a5c911d0-72ea-4a03-863a-ad5e8bc3e7f4"
-    },
-    {
-        "title": "DAW",
-        "text": "DAW",
-        "noteId": "b89da969-cfd4-438b-8dc8-6e3a79a5c8d4"
-    },
-    {
-        "title": "CLAW",
-        "text": "MAW",
-        "noteId": "c283739b-50f4-4be9-94fe-32b78fd28ae1"
-    },
-    {
-        "title": "DAW",
-        "text": "DAW",
-        "noteId": "eec4d1c9-a8e2-4cce-8e19-6dbb47f3d2c3"
-    },
-    {
-        "title": "DAS",
-        "text": "DASA",
-        "noteId": "60a5e026-eb70-4ed1-942a-4f37dab01940"
-    },
-    {
-        "title": "Note",
-        "text": "Saved",
-        "id": "b8954e0d-64e6-4ec9-973e-cab8b58449f2"
-    },
-    {
-        "title": "2nd note",
-        "text": "2nd note",
-        "id": "8de74d4e-aafa-408f-815d-d6266d4d1257"
-    }
+     {
+          "title": "Test Title",
+          "text": "Test text"
+     }
+
 ]
